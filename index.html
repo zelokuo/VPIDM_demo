@@ -1,129 +1,235 @@
-
 <!DOCTYPE html>
 
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>VPIDM Listning test</title>
+  <title>VPIDM Listning Samples</title>
 
   <link rel="stylesheet" href="css/audio.css">
 
 </head>
 
 <body>
-  <h1>A New Interpolation Scheme in Diffusion Models for Single Channel Speech Enhancement</h1> <h2>A New Interpolation Scheme in Diffusion Models for Single Channel Speech Enhancement</h2>
-  
-  <p>In this article, we introduce a variance-preserving interpolation approach to diffusion models for single-channel speech enhancement (SE), termed the variance-preserving interpolation diffusion model (VPIDM). Specifically, VPIDM operates with only 25 iterative steps and obviates the need for the corrector, an essential element in the existing variance-exploding interpolation diffusion model (VEIDM). Two notable distinctions between VPIDM and VEIDM are the scaling function of the mean of a state variable and the constraint imposed on the variance amplitude relative to the mean's scale. We conduct a systematic exploration of the theoretical framework underlying VPIDM, further delve into comprehensive insights regarding VPIDM's application in SE, and introduce an early-stopping algorithm specifically designed for automatic speech recognition (ASR).
-Our empirical research, evaluated on two distinct datasets, demonstrates VPIDM's superior fidelity over traditional discriminative SE approaches. Furthermore, we assess the performance of the proposed model under varying signal-to-noise ratio (SNR) conditions. The investigation reveals VPIDM's improved robustness in target noise elimination compared to VEIDM. Significantly, implementing the early-stopping algorithm on both VPIDM and VEIDM results in enhanced ASR accuracy, thereby highlighting the practical efficacy of our methodology.</p>
 
-  <p>Audio sample is <a href="http://palacecat.bandcamp.com/track/crookshanks">&#8220;Crookshanks&#8221; by Palace Cat</a>, via <a href="http://duplokat.tumblr.com/post/12695092003/geek-friday-ringtone">duplokat</a></p>
-  
-  <p><em>See the standalone <a href="http://wpaudioplayer.com/standalone/">WordPress Audio Player</a> page for information using and configuring the Flash player.</em></p>
-  
+  <h1>A Robust Interpolation Scheme in Diffusion Models for Single-Channel Speech Enhancement <small class="color_fade">Audio Samples</small> </h1>
+<h4> Authors</h4>
+<div style="font-size: medium;"> Zilu Guo, Qing Wang, Jun Du, Shutong Niu, Ruoyu Wang, Gaobin Yang, Jia Pan, Qing-Feng Liu and Chin-Hui Lee </div>
+  <h4> Abstract </h4>
+  <p>In this article, we introduce a variance-preserving interpolation approach to diffusion models for single-channel speech enhancement (SE), termed the variance-preserving interpolation diffusion model (VPIDM). Specifically, VPIDM operates with only 25 iterative steps and obviates the need for the corrector, an essential element in the existing variance-exploding interpolation diffusion model (VEIDM). Two notable distinctions between VPIDM and VEIDM are the scaling function of the mean of a state variable and the constraint imposed on the variance amplitude relative to the mean's scale. We conduct a systematic exploration of the theoretical framework underlying VPIDM, further delve into comprehensive insights regarding VPIDM's application in SE, and introduce an early-stopping algorithm specifically designed for automatic speech recognition (ASR). Our empirical research, evaluated on two distinct datasets, demonstrates VPIDM's superior fidelity over traditional discriminative SE approaches. Furthermore, we assess the performance of the proposed model under varying signal-to-noise ratio (SNR) conditions. The investigation reveals VPIDM's improved robustness in target noise elimination compared to VEIDM. Significantly, implementing the early-stopping algorithm on both VPIDM and VEIDM results in enhanced ASR accuracy, thereby highlighting the practical efficacy of our methodology.</p>
 
-  <h2>Standard</h2>
-
-  <div class="audio-js-box wp-css">
-    <audio class="audio-js" controls preload data-description="Palace Cat - Crookshanks">
-      <source src="audio/Palace Cat - Crookshanks.mp3" type="audio/mpeg">
-      <source src="audio/Palace Cat - Crookshanks.ogg" type="audio/ogg">
-      <source src="audio/Palace Cat - Crookshanks.wav" type="audio/wav">
-
-      <!-- Minimum width of player is 81px -->
-      <object type="application/x-shockwave-flash" data="WP-audio-player/player.swf" id="audioplayer576" height="24" width="81">
-        <param name="movie" value="WP-audio-player/player.swf">
-        <param name="FlashVars" value="playerID=audioplayer576&soundFile=audio/Palace%20Cat%20-%20Crookshanks.mp3&noinfo=no&titles=Crookshanks&artists=Palace%20Cat">
-        <param name="quality" value="high">
-        <param name="menu" value="false">
-        <param name="wmode" value="transparent">
-
-        <p><a href="audio/Palace Cat - Crookshanks.mp3">Download this audio file.</a></p>
-      </object>
-    </audio>
-  </div>
-  
+ <h4> Audio Samples </h4>
   <hr>
-  
-  <h2>Standard (open at start)</h2>
+      <h3>DNS Simulated dataset -5 dB</h3> 
 
-  <div class="audio-js-box wp-css open-at-start">
-    <audio class="audio-js" controls preload data-description="Palace Cat - Crookshanks">
-      <source src="audio/Palace Cat - Crookshanks.mp3" type="audio/mpeg">
-      <source src="audio/Palace Cat - Crookshanks.ogg" type="audio/ogg">
-      <source src="audio/Palace Cat - Crookshanks.wav" type="audio/wav">
 
-      <!-- Minimum width of player is 81px -->
-      <object type="application/x-shockwave-flash" data="WP-audio-player/player.swf" id="audioplayer576" height="24" width="81">
-        <param name="movie" value="WP-audio-player/player.swf">
-        <param name="FlashVars" value="playerID=audioplayer576&soundFile=audio/Palace%20Cat%20-%20Crookshanks.mp3&noinfo=no&titles=Crookshanks&artists=Palace%20Cat">
-        <param name="quality" value="high">
-        <param name="menu" value="false">
-        <param name="wmode" value="transparent">
+<table class="table ">
+            <thead>
+                <tr>
+                    <th>Models</th>
+                    <th>clnsp51</th>
+                    <th>clnsp67</th>
+                    <th>clnsp94</th>
+                    <th>clnsp176</th>
+                    <th>clnsp513</th>                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr> <td> Clean </td>
+	 <td><audio controls=""><source src="audio/Clean/-5/clnsp51_baby_416672_0_snr11_tl-22_fileid_167.wav"></audio></td>
+                <td><audio controls=""><source src="audio/Clean/-5/clnsp67_air_conditioner_151977_0_snr18_tl-23_fileid_80.wav"></audio></td>
+                <td><audio controls=""><source src="audio/Clean/-5/clnsp94_9wJqCdp5PKw_snr8_tl-18_fileid_43.wav"></audio></td>
+                <td><audio controls=""><source src="audio/Clean/-5/clnsp176_chair_154380_0_snr19_tl-32_fileid_35.wav"></audio></td>
+	 <td><audio controls=""><source src="audio/Clean/-5/clnsp624_XrrtrRz1A2Q_snr19_tl-22_fileid_54.wav"></audio></td>
+                </tr>
+                <tr> <td> Noisy </td>
+   	 <td><audio controls=""><source src="audio/Noisy/-5/clnsp51_baby_416672_0_snr11_tl-22_fileid_167.wav"></audio></td>
+                <td><audio controls=""><source src="audio/Noisy/-5/clnsp67_air_conditioner_151977_0_snr18_tl-23_fileid_80.wav"></audio></td>
+                <td><audio controls=""><source src="audio/Noisy/-5/clnsp94_9wJqCdp5PKw_snr8_tl-18_fileid_43.wav"></audio></td>
+                <td><audio controls=""><source src="audio/Noisy/-5/clnsp176_chair_154380_0_snr19_tl-32_fileid_35.wav"></audio></td>
+                <td><audio controls=""><source src="audio/Noisy/-5/clnsp513_babble_188218_9_snr15_tl-21_fileid_287.wav"></audio></td>
+                </tr>
+                <tr> <td> FSubNet </td>
+              	 <td><audio controls=""><source src="audio/FsubNet/-5/clnsp51_baby_416672_0_snr11_tl-22_fileid_167.wav"></audio></td>
+                <td><audio controls=""><source src="audio/FsubNet/-5/clnsp67_air_conditioner_151977_0_snr18_tl-23_fileid_80.wav"></audio></td>
+                <td><audio controls=""><source src="audio/FsubNet/-5/clnsp94_9wJqCdp5PKw_snr8_tl-18_fileid_43.wav"></audio></td>
+                <td><audio controls=""><source src="audio/FsubNet/-5/clnsp176_chair_154380_0_snr19_tl-32_fileid_35.wav"></audio></td>
+                <td><audio controls=""><source src="audio/FsubNet/-5/clnsp513_babble_188218_9_snr15_tl-21_fileid_287.wav"></audio></td>
+                </tr>
+                <tr> <td>NSNet2</td>
+               <td><audio controls=""><source src="audio/NSNet2/-5/clnsp51_baby_416672_0_snr11_tl-22_fileid_167.wav"></audio></td>
+                <td><audio controls=""><source src="audio/NSNet2/-5/clnsp67_air_conditioner_151977_0_snr18_tl-23_fileid_80.wav"></audio></td>
+                <td><audio controls=""><source src="audio/NSNet2/-5/clnsp94_9wJqCdp5PKw_snr8_tl-18_fileid_43.wav"></audio></td>
+                <td><audio controls=""><source src="audio/NSNet2/-5/clnsp176_chair_154380_0_snr19_tl-32_fileid_35.wav"></audio></td>
+                <td><audio controls=""><source src="audio/NSNet2/-5/clnsp513_babble_188218_9_snr15_tl-21_fileid_287.wav"></audio></td>
+                </tr>
+                <tr> <td> NCSN++</td>
+                 <td><audio controls=""><source src="audio/NCSN++/-5/clnsp51_baby_416672_0_snr11_tl-22_fileid_167.wav"></audio></td>
+                <td><audio controls=""><source src="audio/NCSN++/-5/clnsp67_air_conditioner_151977_0_snr18_tl-23_fileid_80.wav"></audio></td>
+                <td><audio controls=""><source src="audio/NCSN++/-5/clnsp94_9wJqCdp5PKw_snr8_tl-18_fileid_43.wav"></audio></td>
+                <td><audio controls=""><source src="audio/NCSN++/-5/clnsp176_chair_154380_0_snr19_tl-32_fileid_35.wav"></audio></td>
+                <td><audio controls=""><source src="audio/NCSN++/-5/clnsp513_babble_188218_9_snr15_tl-21_fileid_287.wav"></audio></td>
+                </tr>
+                <tr> <td> VEIDM </td>
+        	 <td><audio controls=""><source src="audio/VEIDM/-5/clnsp51_baby_416672_0_snr11_tl-22_fileid_167.wav"></audio></td>
+                <td><audio controls=""><source src="audio/VEIDM/-5/clnsp67_air_conditioner_151977_0_snr18_tl-23_fileid_80.wav"></audio></td>
+                <td><audio controls=""><source src="audio/VEIDM/-5/clnsp94_9wJqCdp5PKw_snr8_tl-18_fileid_43.wav"></audio></td>
+                <td><audio controls=""><source src="audio/VEIDM/-5/clnsp176_chair_154380_0_snr19_tl-32_fileid_35.wav"></audio></td>
+                <td><audio controls=""><source src="audio/VEIDM/-5/clnsp513_babble_188218_9_snr15_tl-21_fileid_287.wav"></audio></td>
+                </tr>
+                <tr> <td> VPIDM </td>
+ 	 <td><audio controls=""><source src="audio/VPIDM/-5/clnsp51_baby_416672_0_snr11_tl-22_fileid_167.wav"></audio></td>
+                <td><audio controls=""><source src="audio/VPIDM/-5/clnsp67_air_conditioner_151977_0_snr18_tl-23_fileid_80.wav"></audio></td>
+                <td><audio controls=""><source src="audio/VPIDM/-5/clnsp94_9wJqCdp5PKw_snr8_tl-18_fileid_43.wav"></audio></td>
+                <td><audio controls=""><source src="audio/VPIDM/-5/clnsp176_chair_154380_0_snr19_tl-32_fileid_35.wav"></audio></td>
+                <td><audio controls=""><source src="audio/VPIDM/-5/clnsp513_babble_188218_9_snr15_tl-21_fileid_287.wav"></audio></td>
+                </tr>        
+            </tbody>
+        </table>
 
-        <p><a href="audio/Palace Cat - Crookshanks.mp3">Download this audio file.</a></p>
-      </object>
-    </audio>
-  </div>
-  
+<hr>
+      <h3>DNS Simulated dataset 0 dB</h3> 
+
+
+<table class="table ">
+            <thead>
+                <tr>
+                       <th>Models</th>
+                    <th>clnsp51</th>
+                    <th>clnsp67</th>
+                    <th>clnsp94</th>
+                    <th>clnsp176</th>
+                    <th>clnsp513</th>                  
+                </tr>
+            </thead>
+            <tbody>
+                <tr> <td> Clean </td>
+	 <td><audio controls=""><source src="audio/Clean/0/clnsp51_baby_416672_0_snr11_tl-22_fileid_167.wav"></audio></td>
+                <td><audio controls=""><source src="audio/Clean/0/clnsp67_air_conditioner_151977_0_snr18_tl-23_fileid_80.wav"></audio></td>
+                <td><audio controls=""><source src="audio/Clean/0/clnsp94_9wJqCdp5PKw_snr8_tl-18_fileid_43.wav"></audio></td>
+                <td><audio controls=""><source src="audio/Clean/0/clnsp176_chair_154380_0_snr19_tl-32_fileid_35.wav"></audio></td>
+	 <td><audio controls=""><source src="audio/Clean/0/clnsp624_XrrtrRz1A2Q_snr19_tl-22_fileid_54.wav"></audio></td>
+                </tr>
+                <tr> <td> Noisy </td>
+   	 <td><audio controls=""><source src="audio/Noisy/0/clnsp51_baby_416672_0_snr11_tl-22_fileid_167.wav"></audio></td>
+                <td><audio controls=""><source src="audio/Noisy/0/clnsp67_air_conditioner_151977_0_snr18_tl-23_fileid_80.wav"></audio></td>
+                <td><audio controls=""><source src="audio/Noisy/0/clnsp94_9wJqCdp5PKw_snr8_tl-18_fileid_43.wav"></audio></td>
+                <td><audio controls=""><source src="audio/Noisy/0/clnsp176_chair_154380_0_snr19_tl-32_fileid_35.wav"></audio></td>
+                <td><audio controls=""><source src="audio/Noisy/0/clnsp513_babble_188218_9_snr15_tl-21_fileid_287.wav"></audio></td>
+                </tr>
+                <tr> <td> FSubNet </td>
+              	 <td><audio controls=""><source src="audio/FsubNet/0/clnsp51_baby_416672_0_snr11_tl-22_fileid_167.wav"></audio></td>
+                <td><audio controls=""><source src="audio/FsubNet/0/clnsp67_air_conditioner_151977_0_snr18_tl-23_fileid_80.wav"></audio></td>
+                <td><audio controls=""><source src="audio/FsubNet/0/clnsp94_9wJqCdp5PKw_snr8_tl-18_fileid_43.wav"></audio></td>
+                <td><audio controls=""><source src="audio/FsubNet/0/clnsp176_chair_154380_0_snr19_tl-32_fileid_35.wav"></audio></td>
+                <td><audio controls=""><source src="audio/FsubNet/0/clnsp513_babble_188218_9_snr15_tl-21_fileid_287.wav"></audio></td>
+                </tr>
+                <tr> <td>NSNet2</td>
+               <td><audio controls=""><source src="audio/NSNet2/0/clnsp51_baby_416672_0_snr11_tl-22_fileid_167.wav"></audio></td>
+                <td><audio controls=""><source src="audio/NSNet2/0/clnsp67_air_conditioner_151977_0_snr18_tl-23_fileid_80.wav"></audio></td>
+                <td><audio controls=""><source src="audio/NSNet2/0/clnsp94_9wJqCdp5PKw_snr8_tl-18_fileid_43.wav"></audio></td>
+                <td><audio controls=""><source src="audio/NSNet2/0/clnsp176_chair_154380_0_snr19_tl-32_fileid_35.wav"></audio></td>
+                <td><audio controls=""><source src="audio/NSNet2/0/clnsp513_babble_188218_9_snr15_tl-21_fileid_287.wav"></audio></td>
+                </tr>
+                <tr> <td> NCSN++</td>
+                 <td><audio controls=""><source src="audio/NCSN++/0/clnsp51_baby_416672_0_snr11_tl-22_fileid_167.wav"></audio></td>
+                <td><audio controls=""><source src="audio/NCSN++/0/clnsp67_air_conditioner_151977_0_snr18_tl-23_fileid_80.wav"></audio></td>
+                <td><audio controls=""><source src="audio/NCSN++/0/clnsp94_9wJqCdp5PKw_snr8_tl-18_fileid_43.wav"></audio></td>
+                <td><audio controls=""><source src="audio/NCSN++/0/clnsp176_chair_154380_0_snr19_tl-32_fileid_35.wav"></audio></td>
+                <td><audio controls=""><source src="audio/NCSN++/0/clnsp513_babble_188218_9_snr15_tl-21_fileid_287.wav"></audio></td>
+                </tr>
+                <tr> <td> VEIDM </td>
+        	 <td><audio controls=""><source src="audio/VEIDM/0/clnsp51_baby_416672_0_snr11_tl-22_fileid_167.wav"></audio></td>
+                <td><audio controls=""><source src="audio/VEIDM/0/clnsp67_air_conditioner_151977_0_snr18_tl-23_fileid_80.wav"></audio></td>
+                <td><audio controls=""><source src="audio/VEIDM/0/clnsp94_9wJqCdp5PKw_snr8_tl-18_fileid_43.wav"></audio></td>
+                <td><audio controls=""><source src="audio/VEIDM/0/clnsp176_chair_154380_0_snr19_tl-32_fileid_35.wav"></audio></td>
+                <td><audio controls=""><source src="audio/VEIDM/0/clnsp513_babble_188218_9_snr15_tl-21_fileid_287.wav"></audio></td>
+                </tr>
+                <tr> <td> VPIDM </td>
+ 	 <td><audio controls=""><source src="audio/VPIDM/0/clnsp51_baby_416672_0_snr11_tl-22_fileid_167.wav"></audio></td>
+                <td><audio controls=""><source src="audio/VPIDM/0/clnsp67_air_conditioner_151977_0_snr18_tl-23_fileid_80.wav"></audio></td>
+                <td><audio controls=""><source src="audio/VPIDM/0/clnsp94_9wJqCdp5PKw_snr8_tl-18_fileid_43.wav"></audio></td>
+                <td><audio controls=""><source src="audio/VPIDM/0/clnsp176_chair_154380_0_snr19_tl-32_fileid_35.wav"></audio></td>
+                <td><audio controls=""><source src="audio/VPIDM/0/clnsp513_babble_188218_9_snr15_tl-21_fileid_287.wav"></audio></td>
+                </tr>        
+            </tbody>
+        </table>
+
   <hr>
+      <h3>DNS Simulated dataset 5 dB</h3> 
 
-  <h2>Right-to-Left (play button on left)</h2>
 
-  <div class="audio-js-box wp-css wp-rtl">
-    <audio class="audio-js" controls preload data-description="Palace Cat - Crookshanks">
-      <source src="audio/Palace Cat - Crookshanks.mp3" type="audio/mpeg">
-      <source src="audio/Palace Cat - Crookshanks.ogg" type="audio/ogg">
-      <source src="audio/Palace Cat - Crookshanks.wav" type="audio/wav">
+<table class="table ">
+            <thead>
+                <tr>
+                    <th>Models</th>
+                    <th>clnsp51</th>
+                    <th>clnsp67</th>
+                    <th>clnsp94</th>
+                    <th>clnsp176</th>
+                    <th>clnsp513</th>                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr> <td> Clean </td>
+	 <td><audio controls=""><source src="audio/Clean/5/clnsp51_baby_416672_0_snr11_tl-22_fileid_167.wav"></audio></td>
+                <td><audio controls=""><source src="audio/Clean/5/clnsp67_air_conditioner_151977_0_snr18_tl-23_fileid_80.wav"></audio></td>
+                <td><audio controls=""><source src="audio/Clean/5/clnsp94_9wJqCdp5PKw_snr8_tl-18_fileid_43.wav"></audio></td>
+                <td><audio controls=""><source src="audio/Clean/5/clnsp176_chair_154380_0_snr19_tl-32_fileid_35.wav"></audio></td>
+	 <td><audio controls=""><source src="audio/Clean/5/clnsp624_XrrtrRz1A2Q_snr19_tl-22_fileid_54.wav"></audio></td>
+                </tr>
+                <tr> <td> Noisy </td>
+   	 <td><audio controls=""><source src="audio/Noisy/5/clnsp51_baby_416672_0_snr11_tl-22_fileid_167.wav"></audio></td>
+                <td><audio controls=""><source src="audio/Noisy/5/clnsp67_air_conditioner_151977_0_snr18_tl-23_fileid_80.wav"></audio></td>
+                <td><audio controls=""><source src="audio/Noisy/5/clnsp94_9wJqCdp5PKw_snr8_tl-18_fileid_43.wav"></audio></td>
+                <td><audio controls=""><source src="audio/Noisy/5/clnsp176_chair_154380_0_snr19_tl-32_fileid_35.wav"></audio></td>
+                <td><audio controls=""><source src="audio/Noisy/5/clnsp513_babble_188218_9_snr15_tl-21_fileid_287.wav"></audio></td>
+                </tr>
+                <tr> <td> FSubNet </td>
+              	 <td><audio controls=""><source src="audio/FsubNet/5/clnsp51_baby_416672_0_snr11_tl-22_fileid_167.wav"></audio></td>
+                <td><audio controls=""><source src="audio/FsubNet/5/clnsp67_air_conditioner_151977_0_snr18_tl-23_fileid_80.wav"></audio></td>
+                <td><audio controls=""><source src="audio/FsubNet/5/clnsp94_9wJqCdp5PKw_snr8_tl-18_fileid_43.wav"></audio></td>
+                <td><audio controls=""><source src="audio/FsubNet/5/clnsp176_chair_154380_0_snr19_tl-32_fileid_35.wav"></audio></td>
+                <td><audio controls=""><source src="audio/FsubNet/5/clnsp513_babble_188218_9_snr15_tl-21_fileid_287.wav"></audio></td>
+                </tr>
+                <tr> <td>NSNet2</td>
+               <td><audio controls=""><source src="audio/NSNet2/5/clnsp51_baby_416672_0_snr11_tl-22_fileid_167.wav"></audio></td>
+                <td><audio controls=""><source src="audio/NSNet2/5/clnsp67_air_conditioner_151977_0_snr18_tl-23_fileid_80.wav"></audio></td>
+                <td><audio controls=""><source src="audio/NSNet2/5/clnsp94_9wJqCdp5PKw_snr8_tl-18_fileid_43.wav"></audio></td>
+                <td><audio controls=""><source src="audio/NSNet2/5/clnsp176_chair_154380_0_snr19_tl-32_fileid_35.wav"></audio></td>
+                <td><audio controls=""><source src="audio/NSNet2/5/clnsp513_babble_188218_9_snr15_tl-21_fileid_287.wav"></audio></td>
+                </tr>
+                <tr> <td> NCSN++</td>
+                 <td><audio controls=""><source src="audio/NCSN++/5/clnsp51_baby_416672_0_snr11_tl-22_fileid_167.wav"></audio></td>
+                <td><audio controls=""><source src="audio/NCSN++/5/clnsp67_air_conditioner_151977_0_snr18_tl-23_fileid_80.wav"></audio></td>
+                <td><audio controls=""><source src="audio/NCSN++/5/clnsp94_9wJqCdp5PKw_snr8_tl-18_fileid_43.wav"></audio></td>
+                <td><audio controls=""><source src="audio/NCSN++/5/clnsp176_chair_154380_0_snr19_tl-32_fileid_35.wav"></audio></td>
+                <td><audio controls=""><source src="audio/NCSN++/5/clnsp513_babble_188218_9_snr15_tl-21_fileid_287.wav"></audio></td>
+                </tr>
+                <tr> <td> VEIDM </td>
+        	 <td><audio controls=""><source src="audio/VEIDM/5/clnsp51_baby_416672_0_snr11_tl-22_fileid_167.wav"></audio></td>
+                <td><audio controls=""><source src="audio/VEIDM/5/clnsp67_air_conditioner_151977_0_snr18_tl-23_fileid_80.wav"></audio></td>
+                <td><audio controls=""><source src="audio/VEIDM/5/clnsp94_9wJqCdp5PKw_snr8_tl-18_fileid_43.wav"></audio></td>
+                <td><audio controls=""><source src="audio/VEIDM/5/clnsp176_chair_154380_0_snr19_tl-32_fileid_35.wav"></audio></td>
+                <td><audio controls=""><source src="audio/VEIDM/5/clnsp513_babble_188218_9_snr15_tl-21_fileid_287.wav"></audio></td>
+                </tr>
+                <tr> <td> VPIDM </td>
+ 	 <td><audio controls=""><source src="audio/VPIDM/5/clnsp51_baby_416672_0_snr11_tl-22_fileid_167.wav"></audio></td>
+                <td><audio controls=""><source src="audio/VPIDM/5/clnsp67_air_conditioner_151977_0_snr18_tl-23_fileid_80.wav"></audio></td>
+                <td><audio controls=""><source src="audio/VPIDM/5/clnsp94_9wJqCdp5PKw_snr8_tl-18_fileid_43.wav"></audio></td>
+                <td><audio controls=""><source src="audio/VPIDM/5/clnsp176_chair_154380_0_snr19_tl-32_fileid_35.wav"></audio></td>
+                <td><audio controls=""><source src="audio/VPIDM/5/clnsp513_babble_188218_9_snr15_tl-21_fileid_287.wav"></audio></td>
+                </tr>        
+            </tbody>
+        </table>
 
-      <!-- Minimum width of player is 81px -->
-      <object type="application/x-shockwave-flash" data="WP-audio-player/player.swf" id="audioplayer576" height="24" width="81">
-        <param name="movie" value="WP-audio-player/player.swf">
-        <param name="FlashVars" value="playerID=audioplayer576&soundFile=audio/Palace%20Cat%20-%20Crookshanks.mp3&noinfo=no&titles=Crookshanks&artists=Palace%20Cat">
-        <param name="quality" value="high">
-        <param name="menu" value="false">
-        <param name="wmode" value="transparent">
 
-        <p><a href="audio/Palace Cat - Crookshanks.mp3">Download this audio file.</a></p>
-      </object>
-    </audio>
-  </div>
+        <!-- <div style="font-size: medium;" class="color_fade"> Note: the audio samples of the original NyTT paper are not publicly available.</div> -->
+       
+    </br>    
+        <div class="row"> &nbsp; </div> <br/>
 
-  <hr>
-  
-  <h2>Right-to-Left (play button on left, open at start)</h2>
+    </div>
 
-  <div class="audio-js-box wp-css wp-rtl open-at-start">
-    <audio class="audio-js" controls preload data-description="Palace Cat - Crookshanks">
-      <source src="audio/Palace Cat - Crookshanks.mp3" type="audio/mpeg">
-      <source src="audio/Palace Cat - Crookshanks.ogg" type="audio/ogg">
-      <source src="audio/Palace Cat - Crookshanks.wav" type="audio/wav">
-
-      <!-- Minimum width of player is 81px -->
-      <object type="application/x-shockwave-flash" data="WP-audio-player/player.swf" id="audioplayer576" height="24" width="81">
-        <param name="movie" value="WP-audio-player/player.swf">
-        <param name="FlashVars" value="playerID=audioplayer576&soundFile=audio/Palace%20Cat%20-%20Crookshanks.mp3&noinfo=no&titles=Crookshanks&artists=Palace%20Cat">
-        <param name="quality" value="high">
-        <param name="menu" value="false">
-        <param name="wmode" value="transparent">
-
-        <p><a href="audio/Palace Cat - Crookshanks.mp3">Download this audio file.</a></p>
-      </object>
-    </audio>
-  </div>
-
-  <hr>
-
-  <h2>The original Flash version</h2>
-
-  <object type="application/x-shockwave-flash" data="WP-audio-player/player.swf" id="audioplayer2" height="24" width="360">
-    <param name="movie" value="WP-audio-player/player.swf">
-    <param name="FlashVars" value="playerID=audioplayer2&soundFile=audio/Palace%20Cat%20-%20Crookshanks.mp3&noinfo=no&titles=Crookshanks&artists=Palace%20Cat">
-    <param name="quality" value="high">
-    <param name="menu" value="false">
-    <param name="wmode" value="transparent">
-
-     <p><a href="audio/Palace Cat - Crookshanks.mp3">Download this audio file.</a></p>
-  </object>
 
   <script src="js/audio.js"></script>
 
